@@ -16,7 +16,11 @@ extension Navigation on BuildContext {
         .pushNamedAndRemoveUntil(routeName, predicate, arguments: arguments);
   }
 
-  void pop() {
-    return Navigator.of(this).pop();
+  void pop<T>([T? result]) {
+    return Navigator.of(this).pop<T>(result);
+  }
+
+  void navigateByWidget(Widget to) {
+    Navigator.of(this).push(MaterialPageRoute(builder: (context) => to));
   }
 }

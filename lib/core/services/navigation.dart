@@ -71,6 +71,11 @@ class NavigationService {
     navigatorKey.currentState!.pop(result);
     _currentRouteName = null;
   }
+
+  void navigateByWidget(Widget to) {
+    navigatorKey.currentState!
+        .push(MaterialPageRoute(builder: (context) => to));
+  }
 }
 
 class FadeRoute extends PageRouteBuilder {

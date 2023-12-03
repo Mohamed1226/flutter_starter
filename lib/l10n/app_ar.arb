@@ -1,0 +1,13 @@
+{
+  "v_required": "required",
+  "ok": "ok",
+  "cancel": "cancel",
+  "delete": "delete",
+  "success_process": "success_process",
+  "soon_in_pay_release": "soon_in_pay_release",
+  "cancel_choice": "cancel_choice",
+  "whatapp_text": "whatapp_text",
+  "seem_it_has_connection_error": "seem_it_has_connection_error",
+  "retry": "retry",
+  "hello": "hello"
+}
