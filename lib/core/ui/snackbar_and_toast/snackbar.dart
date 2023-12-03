@@ -37,7 +37,7 @@ abstract class AppSnackBar {
     ScaffoldMessenger.of(
             locator<NavigationService>().navigatorKey.currentState!.context)
         .showSnackBar(_ErrorSnackBar(
-            message: message ?? AppLocalize.gen.success_process));
+            message: message ?? AppLocalize.gen.errer_message));
   }
 
   static showWarningSnackBar({required String message}) {
