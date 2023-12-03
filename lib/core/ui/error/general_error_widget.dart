@@ -27,14 +27,12 @@ class GeneralErrorWidget extends StatefulWidget {
     VoidCallback? callback,
   }) {
     Widget body;
-    // if (error is NetError) {
-    // body = Assets.images.error.connectionError.image(fit: BoxFit.contain);
-    //  } else {
+
     body = const PngImageAsset(
       ImagesPath.generalError,
       fit: BoxFit.fill,
     );
-    // }
+
     return GeneralErrorWidget(
       message: error.error ?? AppLocalize.gen.seem_it_has_connection_error,
       callback: callback,

@@ -30,7 +30,7 @@ class AppLocalize {
     if (supported) return localLang;
   }
 
-  static const defaultLang = langAr;
+  static const defaultLang = langEn;
 
   /// App locale [_appAppLocal] is the selected language (if user already selected it)
   /// if not .. [_appAppLocal] will be the device
