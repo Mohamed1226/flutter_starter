@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ready_structure/core/helpers/enum/app_mode.dart';
 import 'package:ready_structure/core/routing/routes.dart';
+import 'package:ready_structure/core/shared_prefs/app_shared_prefs.dart';
 
 import '../../app_localization/app_localization.dart';
 import '../../di/locator.dart';
@@ -20,15 +22,10 @@ class ApplicationCubit extends AppCubit {
     }
   }
 
-  // void changeAppColorMode({required bool isDarkMode}) async {
-  //   if (isDarkMode) {
-  //     DIManager.sharedPrefs.setDarkMode(AppMode.Night.name);
-  //   } else {
-  //     DIManager.sharedPrefs.setDarkMode(AppMode.Light.name);
-  //   }
-  //
-  //   refreshApp(withReRunApp: false);
-  // }
+  void changeAppColorMode({required AppMode appMode}) async {
+    locator<AppSharedPrefs>().setAppMode(appMode.name);
+    refreshApp(withReRunApp: false);
+  }
 
   void refreshApp({bool withReRunApp = true}) {
     if (withReRunApp) {

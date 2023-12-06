@@ -5,21 +5,19 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' as intl_pkg;
 import 'package:ready_structure/core/services/application/application_cubit.dart';
 
-
 import 'package:ready_structure/generated/intl/messages_ar.dart' as messages_ar;
 import 'package:ready_structure/generated/intl/messages_en.dart' as messages_en;
 
 import '../../generated/l10n.dart';
+import '../di/locator.dart';
 import '../models/localized_string_value.dart';
-
+import '../shared_prefs/app_shared_prefs.dart';
 
 class AppLocalize {
   AppLocalize._();
 
   static const langAr = 'ar';
   static const langEn = 'en';
-
-
 
   static S get gen => S.of(ApplicationCubit.context!);
 
@@ -35,10 +33,7 @@ class AppLocalize {
   /// App locale [_appAppLocal] is the selected language (if user already selected it)
   /// if not .. [_appAppLocal] will be the device
   static AppLocale _appAppLocal =
-      (
-          //DIManager.sharedPrefs.selectedLanguage ??
-          defaultLang)
-          .toAppLocal;
+      (locator<AppSharedPrefs>().appLanguage ?? defaultLang).toAppLocal;
 
   static Locale get appLocale {
     return _appAppLocal.toLocale;
@@ -60,7 +55,7 @@ class AppLocalize {
 
   static void changeAppLocal(String langCode) {
     _appAppLocal = langCode.toAppLocal;
- //   DIManager.sharedPrefs.selectLang(_appAppLocal);
+    locator<AppSharedPrefs>().selectLang(_appAppLocal.langCode);
   }
 
   static T? localize<T>({T? whenArabic, T? whenEnglish}) {
@@ -89,7 +84,6 @@ class AppLocalize {
 // static tr(String msg) {
 //   // S.of(context)
 // }
-
 }
 
 class AppLocale extends Equatable {
