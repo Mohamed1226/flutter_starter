@@ -1,16 +1,32 @@
-# ready_structure
+# starter
 
-A new Flutter project.
+A starter Flutter project.
 
-## Getting Started
+This starter project follow clean Architecture ,it supposed that you need to build app that need to
+connection with API,
+so i used data layer with abstraction and i used dio package
+but if you need to use any other package just write your code and implement (NetProvider class) class
 
-This project is a starting point for a Flutter application.
+# this project support
 
-A few resources to get you started if this is your first Flutter project:
+1- Localization stored in local storage (just and new keys then save)
+2- Change app mode stored in local storage
+3- Abstraction data source layer
+4- Reusable widgets (PNGImageAsset(),SVGImageAsset(),AppTextFormFiled(),AppButton,etc)
+5- Reusable screen StateFul,Stateless can make our UI changeable
+6- styles (with google fonts)
+7- Responsive ui
+8- some ready animation
+9- Reusable dialogs ,toast and snackBar
+10- ready error handle
+11- ready validators to use
+12- DI with get_it package
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# note
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This app build with new flutter version 3.13.8
+APP is handling error just you need to integrate with crashlytics to record errors (AppErrorReporter class)
+
+
+
+
