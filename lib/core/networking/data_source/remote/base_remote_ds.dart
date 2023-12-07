@@ -11,7 +11,7 @@ import '../../../helpers/enum/http_method_enum.dart';
 import '../../net/net_provider.dart';
 import '../../results/result.dart';
 
-abstract class RemoteDataSource {
+abstract class RemoteDataSource  {
   final NetProvider netProvider;
 
   const RemoteDataSource(this.netProvider);
