@@ -7,7 +7,7 @@ import 'package:ready_structure/core/shared_prefs/app_shared_prefs.dart';
 
 import '../../models/api/api_response_model.dart';
 import '../../models/api/data/base_api_model.dart';
-import '../../net/http_method.dart';
+import '../../../helpers/enum/http_method_enum.dart';
 import '../../net/net_provider.dart';
 import '../../results/result.dart';
 
@@ -18,7 +18,7 @@ abstract class RemoteDataSource {
 
   Future<Result<D>> apiRequest<D extends BaseApiDataModel>({
     required ResponseConverter<D> converter,
-    required HttpMethod method,
+    required HttpMethodEnum method,
     required String url,
     dynamic data,
     Map<String, dynamic>? queryParameters,
@@ -50,7 +50,7 @@ abstract class RemoteDataSource {
 
   Future<Result<D>> apiRequestWithFile<D extends BaseApiDataModel>({
     required ResponseConverter<D> converter,
-    required HttpMethod method,
+    required HttpMethodEnum method,
     required String url,
     File? file,
     bool authorized = true,
@@ -89,7 +89,7 @@ abstract class RemoteDataSource {
 
   Future<Result<D>> apiRequestWithFormData<D extends BaseApiDataModel>({
     required ResponseConverter<D> converter,
-    required HttpMethod method,
+    required HttpMethodEnum method,
     required String url,
     required FormData formData,
     ProgressCallback? onSendProgress,

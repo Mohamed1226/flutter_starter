@@ -11,9 +11,6 @@ import '../snackbar_and_toast/snackbar.dart';
 import '../state/cubit_state.dart';
 import 'screen_state.dart';
 
-/*
-  * Created by Ahmed Tawfik on 11/1/2022
-*/
 
 abstract class AppScreen<T extends StatefulWidget, BLOC extends AppCubit>
     extends State<T> implements ScreenState {

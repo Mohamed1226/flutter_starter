@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import '../../services/build_type_extensions.dart';
+import '../../helpers/extensions/build_type_extensions.dart';
 
 class AppToast {
   static void showToast(String msg, {Toast toast = Toast.LENGTH_SHORT}) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ready_structure/core/helpers/context_extensions.dart';
+import 'package:ready_structure/core/helpers/extensions/context_extensions.dart';
 
 import '../../../models/app_url_model.dart';
 import '../../../share_utils/sharing_utils.dart';

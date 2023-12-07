@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ready_structure/core/ui/cubit/application_cubit.dart';
 import 'package:ready_structure/core/constant/images_path.dart';
-import 'package:ready_structure/core/helpers/context_extensions.dart';
+import 'package:ready_structure/core/helpers/extensions/context_extensions.dart';
 import 'package:ready_structure/core/theming/styles/fonts.dart';
 
 import '../../app_localization/app_localization.dart';
 import '../../models/app_url_model.dart';
-import '../../services/application/application_cubit.dart';
 import '../../theming/colors/colors_manager.dart';
 import '../app_checkbox/app_checkbox.dart';
 import '../app_transparent_button.dart';

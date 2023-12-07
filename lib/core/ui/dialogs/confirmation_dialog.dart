@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ready_structure/core/helpers/context_extensions.dart';
+import 'package:ready_structure/core/helpers/extensions/context_extensions.dart';
 
 import '../../app_localization/app_localization.dart';
 import '../../theming/colors/colors_manager.dart';

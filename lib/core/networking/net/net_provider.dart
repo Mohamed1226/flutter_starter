@@ -6,14 +6,14 @@ import 'package:ready_structure/core/networking/results/result.dart';
 
 import '../models/api/api_response_model.dart';
 import '../models/api/data/base_api_model.dart';
-import 'http_method.dart';
+import '../../helpers/enum/http_method_enum.dart';
 
 abstract class NetProvider {
   const NetProvider._();
 
   Future<Result<T>> sendRequest<T extends BaseApiDataModel>({
     required ResponseConverter<T> converter,
-    required HttpMethod method,
+    required HttpMethodEnum method,
     required String url,
     required Map<String, String> headers,
     dynamic data,
@@ -23,7 +23,7 @@ abstract class NetProvider {
 
   Future<Result<T>> request<T extends BaseModel>({
     GeneralResponseConverter<T>? converter,
-    required HttpMethod method,
+    required HttpMethodEnum method,
     required String fullUrl,
     required Map<String, String> headers,
     Map<String, dynamic>? data,
@@ -33,7 +33,7 @@ abstract class NetProvider {
 
   Future<Result<T>> apiRequestWithFiles<T extends BaseApiDataModel>({
     required ResponseConverter<T> converter,
-    required HttpMethod method,
+    required HttpMethodEnum method,
     required String url,
     required File? file,
     ProgressCallback? onSendProgress,
@@ -45,7 +45,7 @@ abstract class NetProvider {
 
   Future<Result<T>> apiRequestWithFormData<T extends BaseApiDataModel>({
     required ResponseConverter<T> converter,
-    required HttpMethod method,
+    required HttpMethodEnum method,
     required String url,
     required FormData formData,
     ProgressCallback? onSendProgress,

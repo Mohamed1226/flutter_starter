@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:ready_structure/core/app_localization/app_localization.dart';
+import 'package:ready_structure/core/di/locator.dart';
 import 'package:ready_structure/core/helpers/enum/app_mode.dart';
 import 'package:ready_structure/core/routing/routes.dart';
+import 'package:ready_structure/core/services/navigation.dart';
 import 'package:ready_structure/core/shared_prefs/app_shared_prefs.dart';
-
-import '../../app_localization/app_localization.dart';
-import '../../di/locator.dart';
-import '../../ui/cubit/app_cubit.dart';
-import '../../ui/state/cubit_state.dart';
-import '../navigation.dart';
+import 'package:ready_structure/core/ui/cubit/app_cubit.dart';
+import 'package:ready_structure/core/ui/state/cubit_state.dart';
 
 class ApplicationCubit extends AppCubit {
   ApplicationCubit() : super(InitResource());

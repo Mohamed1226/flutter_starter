@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' as intl_pkg;
-import 'package:ready_structure/core/services/application/application_cubit.dart';
+import 'package:ready_structure/core/ui/cubit/application_cubit.dart';
 
 import 'package:ready_structure/generated/intl/messages_ar.dart' as messages_ar;
 import 'package:ready_structure/generated/intl/messages_en.dart' as messages_en;

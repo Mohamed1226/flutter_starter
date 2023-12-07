@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ready_structure/core/helpers/context_extensions.dart';
+import 'package:ready_structure/core/helpers/extensions/context_extensions.dart';
 import 'package:ready_structure/core/theming/styles/fonts.dart';
 import '../../app_localization/app_localization.dart';
 import '../widgets/rounded_animated_button.dart';

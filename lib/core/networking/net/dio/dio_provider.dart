@@ -17,10 +17,11 @@ import 'package:ready_structure/core/networking/models/api/data/base_api_model.d
 import 'package:ready_structure/core/networking/models/api/void_result/void_model.dart';
 import 'package:ready_structure/core/networking/models/bases/base_model.dart';
 import 'package:ready_structure/core/networking/net/dio/dio_handler.dart';
-import 'package:ready_structure/core/networking/net/http_method.dart';
-import 'package:ready_structure/core/networking/net/interceptors/app_network_interceptor.dart';
+import 'package:ready_structure/core/networking/net/dio/interceptors/app_network_interceptor.dart';
+import 'package:ready_structure/core/helpers/enum/http_method_enum.dart';
 import 'package:ready_structure/core/networking/net/net_provider.dart';
 import 'package:ready_structure/core/networking/results/result.dart';
+import 'package:ready_structure/core/networking/errors/app_error_reporter/app_error_reporter.dart';
 
 import '../../errors/app_error_reporter/app_error_reporter.dart';
 import '../../errors/base_error.dart';
@@ -32,7 +33,7 @@ class DioProvider implements NetProvider {
   @override
   Future<Result<T>> sendRequest<T extends BaseApiDataModel>({
     required ResponseConverter<T> converter,
-    required HttpMethod method,
+    required HttpMethodEnum method,
     required String url,
     required Map<String, String> headers,
     dynamic data,
@@ -41,7 +42,7 @@ class DioProvider implements NetProvider {
   }) async {
     final _dio = DioHelper.dio;
     _dio.interceptors.clear();
-    _dio.interceptors.add(AppNetworkInterceptor(
+    _dio.interceptors.add(AppDioInterceptor(
       dio: _dio,
     ));
     try {
@@ -55,13 +56,13 @@ class DioProvider implements NetProvider {
       // Get the response from the server
       late Response response;
       switch (method) {
-        case HttpMethod.GET:
+        case HttpMethodEnum.GET:
           response = await _dio.get(url,
               queryParameters: queryParameters,
               options: Options(headers: headers),
               cancelToken: cancelToken);
           break;
-        case HttpMethod.POST:
+        case HttpMethodEnum.POST:
           response = await _dio.post(
             url,
             data: data,
@@ -70,7 +71,7 @@ class DioProvider implements NetProvider {
             cancelToken: cancelToken,
           );
           break;
-        case HttpMethod.PUT:
+        case HttpMethodEnum.PUT:
           response = await _dio.put(
             url,
             data: data,
@@ -80,7 +81,7 @@ class DioProvider implements NetProvider {
           );
 
           break;
-        case HttpMethod.DELETE:
+        case HttpMethodEnum.DELETE:
           response = await _dio.delete(
             url,
             data: data,
@@ -132,7 +133,7 @@ class DioProvider implements NetProvider {
   @override
   Future<Result<T>> request<T extends BaseModel>({
     GeneralResponseConverter<T>? converter,
-    required HttpMethod method,
+    required HttpMethodEnum method,
     required String fullUrl,
     required Map<String, String> headers,
     Map<String, dynamic>? data,
@@ -148,13 +149,13 @@ class DioProvider implements NetProvider {
       // Get the response from the server
       late Response response;
       switch (method) {
-        case HttpMethod.GET:
+        case HttpMethodEnum.GET:
           response = await _dio.get(fullUrl,
               queryParameters: queryParameters,
               options: Options(headers: headers),
               cancelToken: cancelToken);
           break;
-        case HttpMethod.POST:
+        case HttpMethodEnum.POST:
           response = await _dio.post(
             fullUrl,
             data: data,
@@ -163,7 +164,7 @@ class DioProvider implements NetProvider {
             cancelToken: cancelToken,
           );
           break;
-        case HttpMethod.PUT:
+        case HttpMethodEnum.PUT:
           response = await _dio.put(
             fullUrl,
             data: data,
@@ -172,7 +173,7 @@ class DioProvider implements NetProvider {
             cancelToken: cancelToken,
           );
           break;
-        case HttpMethod.DELETE:
+        case HttpMethodEnum.DELETE:
           response = await _dio.delete(
             fullUrl,
             data: data,
@@ -222,7 +223,7 @@ class DioProvider implements NetProvider {
   @override
   Future<Result<T>> apiRequestWithFiles<T extends BaseApiDataModel>({
     required ResponseConverter<T> converter,
-    required HttpMethod method,
+    required HttpMethodEnum method,
     required String url,
     required File? file,
     ProgressCallback? onSendProgress,
@@ -234,7 +235,7 @@ class DioProvider implements NetProvider {
     try {
       final _dio = DioHelper.dio;
       _dio.interceptors.clear();
-      _dio.interceptors.add(AppNetworkInterceptor(
+      _dio.interceptors.add(AppDioInterceptor(
         dio: _dio,
       ));
       log('[$method: $url]');
@@ -254,7 +255,7 @@ class DioProvider implements NetProvider {
       // Get the response from the server
       late Response response;
       switch (method) {
-        case HttpMethod.POST:
+        case HttpMethodEnum.POST:
           response = await _dio.post(
             url,
             data: formData,
@@ -264,7 +265,7 @@ class DioProvider implements NetProvider {
             cancelToken: cancelToken,
           );
           break;
-        case HttpMethod.PUT:
+        case HttpMethodEnum.PUT:
           response = await _dio.put(
             url,
             data: formData,
@@ -274,13 +275,13 @@ class DioProvider implements NetProvider {
             cancelToken: cancelToken,
           );
           break;
-        case HttpMethod.GET:
+        case HttpMethodEnum.GET:
           response = await _dio.get(url,
               queryParameters: queryParameters,
               options: Options(headers: headers),
               cancelToken: cancelToken);
           break;
-        case HttpMethod.DELETE:
+        case HttpMethodEnum.DELETE:
           response = await _dio.delete(
             url,
             data: data,
@@ -332,7 +333,7 @@ class DioProvider implements NetProvider {
   @override
   Future<Result<T>> apiRequestWithFormData<T extends BaseApiDataModel>({
     required ResponseConverter<T> converter,
-    required HttpMethod method,
+    required HttpMethodEnum method,
     required String url,
     required FormData formData,
     ProgressCallback? onSendProgress,
@@ -341,7 +342,7 @@ class DioProvider implements NetProvider {
   }) async {
     final _dio = DioHelper.dio;
     _dio.interceptors.clear();
-    _dio.interceptors.add(AppNetworkInterceptor(
+    _dio.interceptors.add(AppDioInterceptor(
       dio: _dio,
     ));
 
@@ -349,14 +350,14 @@ class DioProvider implements NetProvider {
     try {
       final _dio = Dio();
       _dio.interceptors.clear();
-      _dio.interceptors.add(AppNetworkInterceptor(
+      _dio.interceptors.add(AppDioInterceptor(
         dio: _dio,
       ));
 
       // Get the response from the server
       late Response response;
       switch (method) {
-        case HttpMethod.POST:
+        case HttpMethodEnum.POST:
           response = await _dio.post(
             url,
             data: formData,
@@ -365,7 +366,7 @@ class DioProvider implements NetProvider {
             cancelToken: cancelToken,
           );
           break;
-        case HttpMethod.PUT:
+        case HttpMethodEnum.PUT:
           response = await _dio.put(
             url,
             data: formData,
@@ -374,11 +375,11 @@ class DioProvider implements NetProvider {
             cancelToken: cancelToken,
           );
           break;
-        case HttpMethod.GET:
+        case HttpMethodEnum.GET:
           response = await _dio.get(url,
               options: Options(headers: headers), cancelToken: cancelToken);
           break;
-        case HttpMethod.DELETE:
+        case HttpMethodEnum.DELETE:
           response = await _dio.delete(
             url,
             data: formData,

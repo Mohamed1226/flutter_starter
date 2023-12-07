@@ -2,13 +2,13 @@ import 'dart:developer';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:ready_structure/core/ui/cubit/application_cubit.dart';
 import 'package:ready_structure/core/constant/images_path.dart';
-import 'package:ready_structure/core/helpers/context_extensions.dart';
+import 'package:ready_structure/core/helpers/extensions/context_extensions.dart';
 import 'package:ready_structure/core/theming/styles/fonts.dart';
 
 import '../../app_localization/app_localization.dart';
 import '../../constant/dimens.dart';
-import '../../services/application/application_cubit.dart';
 import '../../theming/colors/colors_manager.dart';
 import '../widgets/images/png_image.dart';
 

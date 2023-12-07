@@ -5,14 +5,14 @@ import 'package:ready_structure/core/di/locator.dart';
 import 'package:ready_structure/core/networking/net/utils/refresh_token_handler.dart';
 import 'package:ready_structure/core/shared_prefs/app_shared_prefs.dart';
 
-class AppNetworkInterceptor extends QueuedInterceptor {
+class AppDioInterceptor extends QueuedInterceptor {
   final Dio dio;
 
   /// The number of retries in case of 401
   final int retries;
   static bool isRefreshTokenDone = false;
 
-  AppNetworkInterceptor({required this.dio, this.retries = 3});
+  AppDioInterceptor({required this.dio, this.retries = 3});
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
