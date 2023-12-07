@@ -30,3 +30,8 @@ APP is handling error just you need to integrate with crashlytics to record erro
 
 
 
+
+
+![Screenshot_13](https://github.com/Mohamed1226/flutter_starter/assets/65566252/de523905-427c-414e-ba80-4c3e2b389417)![Screenshot_11](https://github.com/Mohamed1226/flutter_starter/assets/65566252/0d318c92-fb5a-4ee6-a3e4-53b1d5e3290a)
+
+
