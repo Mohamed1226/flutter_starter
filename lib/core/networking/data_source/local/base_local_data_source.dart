@@ -1,10 +1,10 @@
 import 'package:ready_structure/core/cache/cache_provider.dart';
 import '../../models/bases/base_model.dart';
 
-abstract class LocalDataSource {
+abstract class BaseLocalDataSource {
   final CacheProvider cacheProvider;
 
-  LocalDataSource(this.cacheProvider);
+  BaseLocalDataSource(this.cacheProvider);
 
   Future<void> cacheSingleObject<T extends BaseModel>(T ob) async {
     cacheProvider.cacheSingleObject<T>(ob);
