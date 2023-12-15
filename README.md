@@ -4,8 +4,10 @@ A starter Flutter project.
 
 This starter project follow clean Architecture ,it supposed that you need to build app that need to
 connection with API,
-so i used data layer with abstraction and i used dio package
-but if you need to use any other package just write your code and implement (NetProvider class) class
+so i used data layer with abstraction and i used dio package just add your BASE_URL in api constants and go on...
+but i prefer to add it in env.
+
+if you need to use any other package just write your code and implement (NetProvider) class
 
 # this project support
 
@@ -21,7 +23,11 @@ but if you need to use any other package just write your code and implement (Net
 10- ready error handle
 11- ready validators to use
 12- DI with get_it package
-13- Using JsonSerializable to generate models example in (app_url_model file)
+13- Using JsonSerializable to generate models example in (app_url_model file) if you need to add new changes just run this command after editing
+    dart run build_runner build --delete-conflicting-outputs
+14- Using fvm (flutter version manager)
+
+
 
 # note
 

@@ -6,6 +6,6 @@ import '../shared_prefs/app_shared_prefs.dart';
 GetIt locator = GetIt.instance;
 
 void setupLocator() {
-  locator.registerLazySingleton(() => NavigationService());
-  locator.registerLazySingleton(() => AppSharedPrefs());
+  locator.registerLazySingleton<NavigationService>(() => NavigationService());
+  locator.registerLazySingleton<AppSharedPrefs>(() => AppSharedPrefs());
 }
