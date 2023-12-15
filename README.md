@@ -21,6 +21,7 @@ but if you need to use any other package just write your code and implement (Net
 10- ready error handle
 11- ready validators to use
 12- DI with get_it package
+13- Using JsonSerializable to generate models example in (app_url_model file)
 
 # note
 
@@ -28,7 +29,7 @@ This app build with new flutter version 3.13.8
 APP is handling error just you need to integrate with crashlytics to record errors (AppErrorReporter class)
 
 
-flutter pub run build_runner build --delete-conflicting-outputs
+dart run build_runner build --delete-conflicting-outputs
 
 
 

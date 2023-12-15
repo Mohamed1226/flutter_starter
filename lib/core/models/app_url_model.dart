@@ -1,7 +1,10 @@
 import 'dart:io';
-
 import 'localized_string_value.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'app_url_model.g.dart';
+
+@JsonSerializable()
 class VersionModel {
   VersionModel({
     required this.maintainState,
@@ -10,9 +13,13 @@ class VersionModel {
     required this.latestVersion,
   });
 
+  @JsonKey(name: "maintain_state")
   MaintainState maintainState;
+  @JsonKey(name: "minimum_supported_version")
   String minimumSupportedVersion;
+  @JsonKey(name: "latest_version")
   String latestVersion;
+  @JsonKey(name: "update_url")
   UpdateUrl updateUrl;
 
   factory VersionModel.mock() => VersionModel(
@@ -21,12 +28,8 @@ class VersionModel {
       maintainState: MaintainState.mock(),
       updateUrl: UpdateUrl.mock());
 
-  factory VersionModel.fromJson(Map<String, dynamic> json) => VersionModel(
-        maintainState: MaintainState.fromJson(json["maintain_state"]),
-        minimumSupportedVersion: json["minimum_supported_version"],
-        latestVersion: json["latest_version"],
-        updateUrl: UpdateUrl.fromJson(json["update_url"]),
-      );
+  factory VersionModel.fromJson(Map<String, dynamic> json) =>
+      _$VersionModelFromJson(json);
 
   // factory VersionModel.fromDoc(
   //     DocumentSnapshot<Map<String, dynamic>> snapshot) {
@@ -34,41 +37,33 @@ class VersionModel {
   //   return VersionModel.fromJson(json ?? {});
   // }
 
-  Map<String, dynamic> toJson() => {
-        "maintain_state": maintainState.toJson(),
-        "minimum_supported_version": minimumSupportedVersion,
-        "latest_version": latestVersion,
-        "update_url": updateUrl.toJson(),
-      };
+  Map<String, dynamic> toJson() => _$VersionModelToJson(this);
 }
 
+@JsonSerializable()
 class MaintainState {
   MaintainState({
     required this.maintainMsg,
     required this.underMaintenance,
   });
 
+  @JsonKey(name: "maintain_msg")
   LocalizedStringValue maintainMsg;
+  @JsonKey(name: "under_maintenance")
   bool underMaintenance;
 
   factory MaintainState.mock() => MaintainState(
-        maintainMsg: LocalizedStringValue(arValue: '', enValue: ''),
+        maintainMsg: const LocalizedStringValue(arValue: '', enValue: ''),
         underMaintenance: false,
       );
 
-  factory MaintainState.fromJson(Map<String, dynamic> json) => MaintainState(
-        maintainMsg: LocalizedStringValue.fromJson(json["maintain_msg"]),
-        underMaintenance: json["under_maintenance"] == null
-            ? null
-            : json["under_maintenance"],
-      );
+  factory MaintainState.fromJson(Map<String, dynamic> json) =>
+      _$MaintainStateFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "maintain_msg": maintainMsg.toJson(),
-        "under_maintenance": underMaintenance,
-      };
+  Map<String, dynamic> toJson() => _$MaintainStateToJson(this);
 }
 
+@JsonSerializable()
 class UpdateUrl {
   UpdateUrl({
     required this.android,
@@ -88,13 +83,8 @@ class UpdateUrl {
 
   factory UpdateUrl.mock() => UpdateUrl(android: '', ios: '');
 
-  factory UpdateUrl.fromJson(Map<String, dynamic> json) => UpdateUrl(
-        android: json["android"] == null ? null : json["android"],
-        ios: json["ios"] == null ? null : json["ios"],
-      );
+  factory UpdateUrl.fromJson(Map<String, dynamic> json) =>
+      _$UpdateUrlFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "android": android,
-        "ios": ios,
-      };
+  Map<String, dynamic> toJson() => _$UpdateUrlToJson(this);
 }
