@@ -4,18 +4,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ready_structure/core/routing/routes.dart';
-import 'package:ready_structure/feature/change_language/ui/screen/change_lang_screen.dart';
+import 'package:ready_structure/splash_screen.dart';
 
 class AppRouter {
   static Widget generatePage(String? name, Object? arguments) {
     Widget page;
     switch (name) {
-      case Routes.onBoarding:
-        page = const ChangeLangScreen();
+      case Routes.splash:
+        page = const SplashScreen();
         break;
 
       ///example if there is arguments
-      // case Routes.onBoarding:
+      // case Routes.splash:
       //   final arg = arguments as List;
       //   page = onBoarding(
       //     user: arg.first as Future<user>,

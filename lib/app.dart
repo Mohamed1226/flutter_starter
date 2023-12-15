@@ -4,12 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ready_structure/core/di/locator.dart';
 import 'package:ready_structure/core/routing/routes.dart';
 import 'package:ready_structure/core/services/navigation.dart';
+import 'package:ready_structure/splash_screen.dart';
 
 import 'core/app_localization/app_localization.dart';
 import 'core/constant/dimens.dart';
 import 'core/routing/app_router.dart';
 import 'generated/l10n.dart';
-import 'feature/change_language/ui/screen/change_lang_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -33,10 +33,10 @@ class MyApp extends StatelessWidget {
               // Built-in localization of basic text for Cupertino widgets
               GlobalCupertinoLocalizations.delegate,
             ],
-            initialRoute: Routes.onBoarding,
+            initialRoute: Routes.splash,
             onGenerateRoute: AppRouter.generateRoute,
             navigatorKey: locator<NavigationService>().navigatorKey,
-            home: const ChangeLangScreen(),
+            home: const SplashScreen(),
           );
         });
   }

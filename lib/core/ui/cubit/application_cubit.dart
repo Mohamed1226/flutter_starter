@@ -28,7 +28,7 @@ class ApplicationCubit extends AppCubit {
 
   void refreshApp({bool withReRunApp = true}) {
     if (withReRunApp) {
-      locator<NavigationService>().pushNamedAndRemoveUntil(Routes.onBoarding);
+      locator<NavigationService>().pushNamedAndRemoveUntil(Routes.changeLang);
     } else {
       rebuildAllChildren(
           locator<NavigationService>().navigatorKey.currentState!.context);
