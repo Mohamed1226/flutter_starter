@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:ready_structure/core/di/locator.dart';
 import 'package:ready_structure/core/networking/net/utils/refresh_token_handler.dart';
 import 'package:ready_structure/core/shared_prefs/app_shared_prefs.dart';
@@ -12,7 +13,9 @@ class AppDioInterceptor extends QueuedInterceptor {
   final int retries;
   static bool isRefreshTokenDone = false;
 
-  AppDioInterceptor({required this.dio, this.retries = 3});
+  AppDioInterceptor({required this.dio, this.retries = 3}) {
+    dio.interceptors.add(PrettyDioLogger());
+  }
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {

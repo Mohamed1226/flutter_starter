@@ -16,7 +16,7 @@ import 'package:ready_structure/core/networking/models/api/api_response_model.da
 import 'package:ready_structure/core/networking/models/api/data/base_api_model.dart';
 import 'package:ready_structure/core/networking/models/api/void_result/void_model.dart';
 import 'package:ready_structure/core/networking/models/bases/base_model.dart';
-import 'package:ready_structure/core/networking/net/dio/dio_handler.dart';
+import 'package:ready_structure/core/networking/net/dio/dio_helper.dart';
 import 'package:ready_structure/core/networking/net/dio/interceptors/app_network_interceptor.dart';
 import 'package:ready_structure/core/helpers/enum/http_method_enum.dart';
 import 'package:ready_structure/core/networking/net/net_provider.dart';
