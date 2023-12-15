@@ -8,6 +8,7 @@
   "seem_it_has_connection_error": "seem_it_has_connection_error",
   "retry": "retry",
   "success_process": "success_process",
-  "soon_in_pay_release": "soon_in_pay_release",
-  "errer_message": "errer_message"
+  "soon": "soon",
+  "errer_message": "errer_message",
+  "change_lang_desc" : "if you want to change language just press this button"
 }

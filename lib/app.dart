@@ -9,7 +9,7 @@ import 'core/app_localization/app_localization.dart';
 import 'core/constant/dimens.dart';
 import 'core/routing/app_router.dart';
 import 'generated/l10n.dart';
-import 'onboarding_screen.dart';
+import 'feature/change_language/ui/screen/change_lang_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
             initialRoute: Routes.onBoarding,
             onGenerateRoute: AppRouter.generateRoute,
             navigatorKey: locator<NavigationService>().navigatorKey,
-            home: const OnBoardingScreen(),
+            home: const ChangeLangScreen(),
           );
         });
   }

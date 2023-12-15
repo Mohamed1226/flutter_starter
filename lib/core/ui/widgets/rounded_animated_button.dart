@@ -89,7 +89,7 @@ class _RoundedAnimatedButtonState extends State<RoundedAnimatedButton> {
                   : const BorderSide(width: 0.0, color: Colors.transparent),
               borderRadius: BorderRadius.circular(
                   (widget.borderRadius ?? Dimens.buttonBorderRadius))),
-          color: (widget.color ?? ColorsManager.instance(context).primaryColor),
+          color: (widget.color ?? ColorsManager.instance(context).buttonColor),
           child: Center(
             child: widget.isLoading
                 ? const AppLoaderWidget(

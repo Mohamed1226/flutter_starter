@@ -1,13 +1,14 @@
 {
-  "v_required": "v_required",
-  "whatapp_text": "whatapp_text",
-  "cancel_choice": "cancel_choice",
-  "delete": "delete",
-  "cancel": "cancel",
-  "ok": "ok",
-  "seem_it_has_connection_error": "seem_it_has_connection_error",
-  "retry": "retry",
-  "success_process": "success_process",
-  "soon_in_pay_release": "soon_in_pay_release",
-  "errer_message": "errer_message"
+  "v_required": "مطلوب",
+  "whatapp_text": "واتساب",
+  "cancel_choice": "الغاء الاختيار",
+  "delete": "حذف",
+  "cancel": "الغاء",
+  "ok": "موافق",
+  "seem_it_has_connection_error": "يبدو ان هناك مشكله في الاتصال",
+  "retry": "اعد المحاولة",
+  "success_process": "تمت العمليه بنجاح",
+  "soon": "قريبا",
+  "errer_message": "هناك خطأ",
+  "change_lang_desc" : "اذا كنت ترجب في تغيير اللغه اضغط هنا"
 }

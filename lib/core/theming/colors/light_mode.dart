@@ -7,5 +7,5 @@ class LightColors implements ColorsManager {
   Color primaryColor = const Color(0xffEBEBEB);
 
   @override
-  Color buttonColor = const Color(0xffEBEBEB);
+  Color buttonColor =  Colors.greenAccent;
 }

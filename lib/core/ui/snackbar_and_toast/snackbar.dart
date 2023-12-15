@@ -29,7 +29,7 @@ abstract class AppSnackBar {
       ScaffoldMessenger.of(
               locator<NavigationService>().navigatorKey.currentState!.context)
           .showSnackBar(_SuccessSnackbar(
-              message: message ?? AppLocalize.gen.soon_in_pay_release));
+              message: message ?? AppLocalize.gen.soon));
     }
   }
 

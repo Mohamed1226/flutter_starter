@@ -7,7 +7,8 @@
 // ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
-// ignore_for_file:unused_import, file_names
+// ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
+// ignore_for_file:unnecessary_string_interpolations, unnecessary_string_escapes
 
 import 'package:intl/intl.dart';
 import 'package:intl/message_lookup_by_library.dart';
@@ -20,17 +21,21 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static _notInlinedMessages(_) => <String, Function> {
-    "cancel" : MessageLookupByLibrary.simpleMessage("cancel"),
-    "cancel_choice" : MessageLookupByLibrary.simpleMessage("cancel_choice"),
-    "delete" : MessageLookupByLibrary.simpleMessage("delete"),
-    "errer_message" : MessageLookupByLibrary.simpleMessage("errer_message"),
-    "ok" : MessageLookupByLibrary.simpleMessage("ok"),
-    "retry" : MessageLookupByLibrary.simpleMessage("retry"),
-    "seem_it_has_connection_error" : MessageLookupByLibrary.simpleMessage("seem_it_has_connection_error"),
-    "soon_in_pay_release" : MessageLookupByLibrary.simpleMessage("soon_in_pay_release"),
-    "success_process" : MessageLookupByLibrary.simpleMessage("success_process"),
-    "v_required" : MessageLookupByLibrary.simpleMessage("v_required"),
-    "whatapp_text" : MessageLookupByLibrary.simpleMessage("whatapp_text")
-  };
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
+        "cancel_choice": MessageLookupByLibrary.simpleMessage("الغاء الاختيار"),
+        "change_lang_desc": MessageLookupByLibrary.simpleMessage(
+            "اذا كنت ترجب في تغيير اللغه اضغط هنا"),
+        "delete": MessageLookupByLibrary.simpleMessage("حذف"),
+        "errer_message": MessageLookupByLibrary.simpleMessage("هناك خطأ"),
+        "ok": MessageLookupByLibrary.simpleMessage("موافق"),
+        "retry": MessageLookupByLibrary.simpleMessage("اعد المحاولة"),
+        "seem_it_has_connection_error": MessageLookupByLibrary.simpleMessage(
+            "يبدو ان هناك مشكله في الاتصال"),
+        "soon": MessageLookupByLibrary.simpleMessage("قريبا"),
+        "success_process":
+            MessageLookupByLibrary.simpleMessage("تمت العمليه بنجاح"),
+        "v_required": MessageLookupByLibrary.simpleMessage("مطلوب"),
+        "whatapp_text": MessageLookupByLibrary.simpleMessage("واتساب")
+      };
 }
