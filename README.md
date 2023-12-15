@@ -28,7 +28,7 @@ This app build with new flutter version 3.13.8
 APP is handling error just you need to integrate with crashlytics to record errors (AppErrorReporter class)
 
 
-
+flutter pub run build_runner build --delete-conflicting-outputs
 
 
 

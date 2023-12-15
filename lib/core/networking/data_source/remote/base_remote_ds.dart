@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:ready_structure/core/constant/api_constant.dart';
 import 'package:ready_structure/core/di/locator.dart';
 import 'package:ready_structure/core/shared_prefs/app_shared_prefs.dart';
 
@@ -26,7 +27,7 @@ abstract class RemoteDataSource {
     bool authorized = true,
     CancelToken? cancelToken,
   }) async {
-    final String _fullUrl = "YOUR_BASE_URL$url";
+    final String _fullUrl = "${APIConstant.baseUrl}$url";
 
     Map<String, String> _headers = {"Accept": "*/*"};
     if (multiParts) _headers.addAll({"Content-Type": "multipart/form-data"});
@@ -58,7 +59,7 @@ abstract class RemoteDataSource {
     Map<String, dynamic>? data,
     CancelToken? cancelToken,
   }) async {
-    final String _fullUrl = "YOUR_BASE_URL$url";
+    final String _fullUrl = "${APIConstant.baseUrl}$url";
 
     Map<String, String> _headers = {
       // "Accept": "application/json",
@@ -95,7 +96,7 @@ abstract class RemoteDataSource {
     ProgressCallback? onSendProgress,
     CancelToken? cancelToken,
   }) async {
-    final String _fullUrl = "YOUR_BASE_URL$url";
+    final String _fullUrl = "${APIConstant.baseUrl}$url";
 
     Map<String, String> _headers = {
       "Accept": "*/*",
